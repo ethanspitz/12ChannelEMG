@@ -363,7 +363,7 @@ UsedLibrary="C:/Program Files (x86)/EAGLE-6.3.0/lbr/element14/Texas Instruments_
 
 [Win_1]
 Type="Control Panel"
-Loc="633 104 1390 741"
+Loc="492 231 1091 630"
 State=2
 Number=0
 

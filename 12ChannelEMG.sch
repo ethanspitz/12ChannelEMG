@@ -126,13 +126,6 @@
 <wire x1="-4.8" y1="2.5" x2="-4.8" y2="-2.5" width="0.127" layer="21"/>
 <circle x="-2.49071875" y="0.965546875" radius="0.2076125" width="0.127" layer="21"/>
 </package>
-<package name="1.5MMTOUCHPROOFJACK">
-<pad name="1" x="5.1" y="0" drill="1.6" shape="long"/>
-<pad name="P$2" x="-5.1" y="2.5" drill="1.3" shape="long"/>
-<pad name="P$3" x="-5.1" y="-2.5" drill="1.3" shape="long"/>
-<rectangle x1="-12.23" y1="-3.175" x2="2.756" y2="3.175" layer="21" rot="R180"/>
-<rectangle x1="2.756" y1="-1.651" x2="6.82" y2="1.651" layer="21" rot="R180"/>
-</package>
 </packages>
 <symbols>
 <symbol name="INA101KU">
@@ -193,11 +186,6 @@
 <text x="-7.62" y="-5.08" size="1.778" layer="95">&gt;NAME</text>
 <text x="-7.62" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
 <text x="-5.08" y="5.08" size="1.778" layer="94">CW -&gt;</text>
-</symbol>
-<symbol name="CONNECTOR">
-<pin name="SIGNAL" x="7.62" y="0" length="middle" function="clk" rot="R180"/>
-<text x="2.54" y="2.54" size="1.27" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.54" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -269,21 +257,6 @@
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="1.5MMJACK">
-<gates>
-<gate name="G$1" symbol="CONNECTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1.5MMTOUCHPROOFJACK">
-<connects>
-<connect gate="G$1" pin="SIGNAL" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -11309,6 +11282,56 @@ Source: Fairchild .. BAT54.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="pinhead">
+<description>&lt;b&gt;Pin Header Connectors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="1X01">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<pad name="1" x="0" y="0" drill="1.016" shape="octagon"/>
+<text x="-1.3462" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="PINHD1">
+<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="-6.35" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="2.54" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
+<text x="-6.35" y="3.175" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PINHD-1X1" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="PINHD1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X01">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11340,9 +11363,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="R8" library="resistor" deviceset="R-US_" device="R0603" value="100k"/>
 <part name="R9" library="resistor" deviceset="R-US_" device="R0603" value="56k"/>
 <part name="R10" library="resistor" deviceset="R-US_" device="R0603" value="100"/>
-<part name="VIN+" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
-<part name="VIN-" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
-<part name="GND" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
 <part name="U$4" library="12-ChannelEMG" deviceset="INA101KU" device="INA101KU" value="INA101KU"/>
 <part name="R11" library="rcl" deviceset="R-US_" device="R0805" value="50k"/>
 <part name="C8" library="resistor" deviceset="C-US" device="C1206K" value="0.1uF"/>
@@ -11364,8 +11384,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="R18" library="resistor" deviceset="R-US_" device="R0603" value="100k"/>
 <part name="R19" library="resistor" deviceset="R-US_" device="R0603" value="56k"/>
 <part name="R20" library="resistor" deviceset="R-US_" device="R0603" value="100"/>
-<part name="VIN+1" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
-<part name="VIN-1" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
 <part name="U$7" library="12-ChannelEMG" deviceset="INA101KU" device="INA101KU" value="INA101KU"/>
 <part name="R21" library="rcl" deviceset="R-US_" device="R0805" value="50k"/>
 <part name="C15" library="resistor" deviceset="C-US" device="C1206K" value="0.1uF"/>
@@ -11387,8 +11405,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="R28" library="resistor" deviceset="R-US_" device="R0603" value="100k"/>
 <part name="R29" library="resistor" deviceset="R-US_" device="R0603" value="56k"/>
 <part name="R30" library="resistor" deviceset="R-US_" device="R0603" value="100"/>
-<part name="VIN+2" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
-<part name="VIN-2" library="12-ChannelEMG" deviceset="1.5MMJACK" device=""/>
+<part name="GND" library="pinhead" deviceset="PINHD-1X1" device="" value="GND"/>
 </parts>
 <sheets>
 <sheet>
@@ -11423,9 +11440,6 @@ Connections</text>
 <instance part="R8" gate="G$1" x="134.62" y="58.42" rot="R90"/>
 <instance part="R9" gate="G$1" x="139.7" y="45.72"/>
 <instance part="R10" gate="G$1" x="139.7" y="35.56"/>
-<instance part="VIN+" gate="G$1" x="-17.78" y="63.5"/>
-<instance part="VIN-" gate="G$1" x="-30.48" y="58.42"/>
-<instance part="GND" gate="G$1" x="-33.02" y="25.4"/>
 <instance part="U$4" gate="G$1" x="25.4" y="101.6"/>
 <instance part="R11" gate="G$1" x="22.86" y="116.84"/>
 <instance part="C8" gate="G$1" x="-5.08" y="106.68" rot="R270"/>
@@ -11447,8 +11461,6 @@ Connections</text>
 <instance part="R18" gate="G$1" x="134.62" y="116.84" rot="R90"/>
 <instance part="R19" gate="G$1" x="139.7" y="104.14"/>
 <instance part="R20" gate="G$1" x="139.7" y="93.98"/>
-<instance part="VIN+1" gate="G$1" x="-17.78" y="121.92"/>
-<instance part="VIN-1" gate="G$1" x="-30.48" y="116.84"/>
 <instance part="U$7" gate="G$1" x="25.4" y="160.02"/>
 <instance part="R21" gate="G$1" x="22.86" y="175.26"/>
 <instance part="C15" gate="G$1" x="-5.08" y="165.1" rot="R270"/>
@@ -11470,8 +11482,7 @@ Connections</text>
 <instance part="R28" gate="G$1" x="134.62" y="175.26" rot="R90"/>
 <instance part="R29" gate="G$1" x="139.7" y="162.56"/>
 <instance part="R30" gate="G$1" x="139.7" y="152.4"/>
-<instance part="VIN+2" gate="G$1" x="-17.78" y="180.34"/>
-<instance part="VIN-2" gate="G$1" x="-30.48" y="175.26"/>
+<instance part="GND" gate="G$1" x="-40.64" y="25.4" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -11598,9 +11609,9 @@ Connections</text>
 <segment>
 <wire x1="-17.78" y1="30.48" x2="-7.62" y2="30.48" width="0.1524" layer="91"/>
 <label x="-15.24" y="30.48" size="1.778" layer="95"/>
-<wire x1="-25.4" y1="25.4" x2="-7.62" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="25.4" x2="-7.62" y2="25.4" width="0.1524" layer="91"/>
 <label x="-15.24" y="25.4" size="1.778" layer="95"/>
-<pinref part="GND" gate="G$1" pin="SIGNAL"/>
+<pinref part="GND" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="INA+"/>
@@ -11752,7 +11763,6 @@ Connections</text>
 <wire x1="7.62" y1="45.72" x2="2.54" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="45.72" x2="2.54" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="58.42" x2="-22.86" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="VIN-" gate="G$1" pin="SIGNAL"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -11910,7 +11920,6 @@ Connections</text>
 <pinref part="U$1" gate="G$1" pin="IN+"/>
 <wire x1="43.18" y1="45.72" x2="45.72" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="45.72" x2="45.72" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="VIN+" gate="G$1" pin="SIGNAL"/>
 <wire x1="45.72" y1="63.5" x2="-10.16" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -11933,7 +11942,6 @@ Connections</text>
 <wire x1="7.62" y1="104.14" x2="2.54" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="104.14" x2="2.54" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="116.84" x2="-22.86" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="VIN-1" gate="G$1" pin="SIGNAL"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -12091,7 +12099,6 @@ Connections</text>
 <pinref part="U$4" gate="G$1" pin="IN+"/>
 <wire x1="43.18" y1="104.14" x2="45.72" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="104.14" x2="45.72" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="VIN+1" gate="G$1" pin="SIGNAL"/>
 <wire x1="45.72" y1="121.92" x2="-10.16" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -12101,7 +12108,6 @@ Connections</text>
 <wire x1="7.62" y1="162.56" x2="2.54" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="162.56" x2="2.54" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="175.26" x2="-22.86" y2="175.26" width="0.1524" layer="91"/>
-<pinref part="VIN-2" gate="G$1" pin="SIGNAL"/>
 </segment>
 </net>
 <net name="N$35" class="0">
@@ -12272,7 +12278,6 @@ Connections</text>
 <pinref part="U$7" gate="G$1" pin="IN+"/>
 <wire x1="43.18" y1="162.56" x2="45.72" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="162.56" x2="45.72" y2="180.34" width="0.1524" layer="91"/>
-<pinref part="VIN+2" gate="G$1" pin="SIGNAL"/>
 <wire x1="45.72" y1="180.34" x2="-10.16" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 </net>
